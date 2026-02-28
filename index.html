@@ -9,26 +9,11 @@
   delivering high-quality finishes, clean workmanship, and reliable results.
    Interior and exterior painting done right."/>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playpen+Sans+Hebrew:wght@100..800&family=Noto+Sans+Hebrew:wght@400;600;700;800;900&display=swap" />
-  <link rel="preload" as="image" href="assets/media/hero.jpg" imagesrcset="assets/media/hero.png 1x" />
+  <link rel="preload" as="image" href="assets/media/hero.jpg" imagesrcset="assets/media/hero.jpg 1x" />
   <link rel="stylesheet" href="./style.css" />
   <script src="./main.js" defer></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<!-- Google Tag Manager -->
 
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-KMFM7VV3');
-  </script>
-  
   <!-- Favicon Configuration -->
   <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
   
@@ -42,28 +27,21 @@
 </head>
 
 <body>
-  
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMFM7VV3"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-
 
   <!-- SITE NAVBAR -->
   <header class="site-header">
   <nav class="container nav">
     <div class="logo">
       <img src="assets/media/Logo.svg" height="54" width="54">
-      <span style="color: #001F54;">בוחרים בחיים</span>
+      <span style="color: #001F54;">A2B Painting</span>
     </div>
 
-    <button class="nav__toggle" aria-expanded="false" aria-controls="siteMenu" aria-label="פתח תפריט">☰</button>
+    <button class="nav__toggle" aria-expanded="false" aria-controls="siteMenu" aria-label="Menu">☰</button>
     <ul id="siteMenu" class="menu" role="list">
-      <li><a class="nav__link" href="#problem">המצב כיום</a></li>
-      <li><a class="nav__link" href="#about">מי אנחנו</a></li>
-      <li><a class="nav__link" href="#success">סיפורי הצלחה</a></li>
-      <li><a class="btn btn--brand nav__cta" href="#contact">השאירו פרטים</a></li>
+      <li><a class="nav__link" href="#about">About Us</a></li>
+      <li><a class="nav__link" href="#services">Services</a></li>
+      <li><a class="nav__link" href="#success">Customers Say</a></li>
+      <li><a class="btn btn--brand nav__cta" href="#contact">Contact Us</a></li>
     </ul>
   </nav>
 </header>
@@ -71,7 +49,7 @@
   <main>
 
     <!-- HERO -->
-    <section id="hero" class="hero" aria-label="כותרת">
+    <section id="hero" class="hero" aria-label="Title">
     
       <!-- Background media wrapper -->
       <div class="hero__bg" aria-hidden="true">
@@ -80,81 +58,146 @@
     
       <!-- Content -->
       <div class="container hero__content">
-        <h1 class="hero__title">בוחרים בחיים</h1>
+        <h1 class="hero__title">A2B Painting</h1>
     
-        <p class="hero__subtitle">האירוע לא עוזב אותך? חווה את הטראומה שוב ושוב?</p>
-        <p class="hero__subtitle">התוכנית שבאמת תוציא אותך מהסיוט אחת ולתמיד</p>
+        <p class="hero__subtitle">Painting Done Right.</p>
+        <p class="hero__subline">Clean prep, crisp lines, and a finish that lasts.</p>
     
         <div class="hero__cta">
-          <a class="btn btn--brand" href="#contact">השאירו פרטים</a>
+          <a id="heroCallNowBtn" class="btn btn--brand" href="#contact">Call Now!</a>
         </div>
 
-        <!-- CTA button -->
-        <button class="hero__scroll" aria-label="גלילת הדף מטה" data-scroll-target="#problem"> ↓ </button>
+        <ul class="hero__trust" role="list" aria-label="Trust points">
+          <li>Free Estimates</li>
+          <li>Owner Operated</li>
+          <li>Clean &amp; Detailed Work</li>
+        </ul>
       </div>
     </section>
 
-    <!-- PROBLEM -->
-    <section id="problem" class="section section--after-hero" aria-label="מדינה בטראומה">
-      <div class="container container--wide">
-
-        <!-- Section title-->
-        <h2 class="section__title">מדינה בטראומה</h2>
-
-        <!-- Section content-->
-        <p class="section__text">
-          עשרות אלפי פוסט טראומטיים נוספו לישראל מאז השביעי באוקטובר.
-          זה אומר מאות אלפי ילדים, הורים, נשים, אחים וחברים המושפעים מהמצב הבלתי נסבל הזה.
-          <br> התמונות לא נותנות מנוח, חווים את האירוע מחדש עם האובדן, הלחץ והחרדה.
-          אף אחד לא מבין את המצב, קשה לישון, קשה לנהל מערכות יחסים ועוד ועוד...
-          <br>חייבים פתרון.
-        </p>
-      </div>
-    </section>
-
-<!-- ABOUT -->
-<section id="about" class="section section--soft about" aria-label="אנחנו איתך">
+<!-- SERVICES -->
+<section id="services" class="section services" aria-label="Services">
   <div class="container container--wide">
+    <header class="services__head">
+      <h2 class="services__title">Our Services</h2>
+      <p class="services__intro">Quality painting for interiors and exteriors, with careful prep and a clean finish.</p>
+    </header>
 
-    <!-- Section title-->
-    <h2 class="section__title">אנחנו איתך</h2>
-
-    <!-- Section content-->
-    <p class="section__text">
-      אנחנו בבוחרים בחיים שואפים לפתרון מלא ולא רק לתמיכה או התמודדות עם הפוסט טראומה.
-      <br>אנחנו רוצים אותך בתפקוד מלא עם חיים נורמטיביים, אושר והצלחה - מכאן והלאה!<br>
-      אז לא משנה אם לחמת, אם השתתפת במסיבת הנובה, אם היית בשבי חמאס או שכלת מישהו אהוב - התכנית שלנו היא בשבילך.
-    </p>
-
-    <!-- Program flash cards -->
-    <div class="features" role="list">
-      <article class="feature-card feature-card--1" role="listitem">
-        <h3 class="feature__title">תוכנית אישית</h3>
-        <p class="feature__text">ניפגש לראיון ונבנה תכנית מותאמת אישית עבורך.</p>
+    <div class="services__grid" role="list">
+      <article class="service-card" role="listitem">
+        <span class="service-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24"><path d="M3 7h15l-2 4H5L3 7zm2 6h10v7H5v-7zm12-9l2-2 2 2-2 2-2-2z" fill="currentColor"/></svg>
+        </span>
+        <h3 class="service-card__title">Interior Painting</h3>
+        <p class="service-card__text">Clean lines, smooth walls, and a finish that refreshes your whole home.</p>
       </article>
 
-      <article class="feature-card feature-card--2" role="listitem">
-        <h3 class="feature__title">דיאנטיקה</h3>
-        <p class="feature__text">טכניקה ייחודית למחיקת ההשפעה השלילית של מאורעות טראומטיים.</p>
+      <article class="service-card" role="listitem">
+        <span class="service-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 3l9 7v11h-6v-6H9v6H3V10l9-7z" fill="currentColor"/></svg>
+        </span>
+        <h3 class="service-card__title">Exterior Painting</h3>
+        <p class="service-card__text">Weather-ready coatings that protect your home and boost curb appeal.</p>
       </article>
 
-      <article class="feature-card feature-card--3" role="listitem">
-        <h3 class="feature__title">כלים לחיים מאושרים</h3>
-        <p class="feature__text">נלמד שיטות וכלים מעשיים לאושר והצלחה.</p>
+      <article class="service-card" role="listitem">
+        <span class="service-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24"><path d="M4 4h16v4H4V4zm2 6h12v10H6V10zm2 2v6h8v-6H8z" fill="currentColor"/></svg>
+        </span>
+        <h3 class="service-card__title">Trim &amp; Doors</h3>
+        <p class="service-card__text">Crisp edges and durable paint where details matter most.</p>
       </article>
 
-      <article class="feature-card feature-card--4" role="listitem">
-        <h3 class="feature__title">פעילויות מהנות</h3>
-        <p class="feature__text">במהלך התכנית נשלב פעילויות חוויתיות ומהנות לפי בחירתך.</p>
+      <article class="service-card" role="listitem">
+        <span class="service-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24"><path d="M4 5h16v14H4V5zm2 2v10h12V7H6zm2 2h8v2H8V9zm0 4h5v2H8v-2z" fill="currentColor"/></svg>
+        </span>
+        <h3 class="service-card__title">Drywall Patching</h3>
+        <p class="service-card__text">Holes and cracks repaired so the paint looks flawless.</p>
+      </article>
+
+      <article class="service-card" role="listitem">
+        <span class="service-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v4H7v-4z" fill="currentColor"/></svg>
+        </span>
+        <h3 class="service-card__title">Cabinet Painting</h3>
+        <p class="service-card__text">A major upgrade without the cost of replacing cabinets.</p>
+      </article>
+
+      <article class="service-card" role="listitem">
+        <span class="service-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24"><path d="M2 19h20v2H2v-2zM7 3l2 2-4 4-2-2 4-4zm7 1l7 7-1.5 1.5-7-7L14 4zm-3 6l6 6-1.5 1.5-6-6L11 10z" fill="currentColor"/></svg>
+        </span>
+        <h3 class="service-card__title">Pressure Washing</h3>
+        <p class="service-card__text">A clean surface ensures better adhesion and longer-lasting paint.</p>
       </article>
     </div>
 
-    <!-- CTA button-->
-    <div class="about__cta">
-      <a class="btn btn--brand btn--xl" href="#contact">אני בוחר בחיים!</a>
+    <div class="services__cta">
+      <p class="services__cta-text">Not sure what you need? We’re happy to help.</p>
+      <a class="services__cta-btn" href="#contact">Get Free Estimate</a>
     </div>
   </div>
 </section>
+
+    <!-- About + Differentiators -->
+    <section id="about" class="section section--after-hero choose-a2b" aria-label="Why Choose A2B Painting">
+      <div class="container container--wide">
+        <h2 class="choose-a2b__title">Why Choose A2B Painting</h2>
+
+        <div class="choose-a2b__layout">
+          <div class="choose-a2b__about">
+            <p class="choose-a2b__text">
+              A2B Painting is an owner-operated business focused on quality, reliability, and attention to detail.
+              Every project is handled with care, from preparation to final walkthrough, ensuring your home looks
+              its best.
+            </p>
+          </div>
+
+          <div class="choose-a2b__diffs" role="list" aria-label="Differentiators">
+            <article class="choose-a2b__item" role="listitem">
+              <span class="choose-a2b__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0 2c-3.3 0-8 1.7-8 5v1h16v-1c0-3.3-4.7-5-8-5z" fill="currentColor"/></svg>
+              </span>
+              <div class="choose-a2b__copy">
+                <h3 class="choose-a2b__item-title">Owner on Every Job</h3>
+                <p class="choose-a2b__item-text">You work directly with the person doing the job.</p>
+              </div>
+            </article>
+
+            <article class="choose-a2b__item" role="listitem">
+              <span class="choose-a2b__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 7h15l-2 4H5L3 7zm2 6h10v7H5v-7zm12-9l2-2 2 2-2 2-2-2z" fill="currentColor"/></svg>
+              </span>
+              <div class="choose-a2b__copy">
+                <h3 class="choose-a2b__item-title">Careful Preparation</h3>
+                <p class="choose-a2b__item-text">Proper prep work ensures a clean and long-lasting finish.</p>
+              </div>
+            </article>
+
+            <article class="choose-a2b__item" role="listitem">
+              <span class="choose-a2b__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 5h16v14H4V5zm2 2v10h12V7H6zm2 2h8v2H8V9zm0 4h5v2H8v-2z" fill="currentColor"/></svg>
+              </span>
+              <div class="choose-a2b__copy">
+                <h3 class="choose-a2b__item-title">Respect for Your Home</h3>
+                <p class="choose-a2b__item-text">Clean work areas and protection for your furniture and floors.</p>
+              </div>
+            </article>
+
+            <article class="choose-a2b__item" role="listitem">
+              <span class="choose-a2b__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 5h18v12H7l-4 3V5zm3 3v2h12V8H6zm0 4v2h8v-2H6z" fill="currentColor"/></svg>
+              </span>
+              <div class="choose-a2b__copy">
+                <h3 class="choose-a2b__item-title">Clear Communication</h3>
+                <p class="choose-a2b__item-text">Straightforward estimates and reliable scheduling.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
 
 <!-- TEAM -->
 <section id="team" class="section section--soft team" aria-label="Team">
@@ -369,8 +412,8 @@
 
       <!-- Sections links-->
       <ul class="footer__links" role="list">
-        <li><a href="#problem">המצב כיום</a></li>
-        <li><a href="#about">מי אנחנו</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#success">סיפורי הצלחה</a></li>
       </ul>
     </div>

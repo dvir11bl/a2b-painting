@@ -7,6 +7,59 @@ document.querySelectorAll('[data-scroll-target]').forEach(btn => {
   });
 });
 
+// Hero CTA: mobile calls directly, desktop scrolls to contact section.
+(function () {
+  const cta = document.getElementById('heroCallNowBtn');
+  if (!cta) return;
+
+  const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const isSmallTouch = window.matchMedia('(max-width: 900px) and (hover: none)').matches;
+  const isMobile = isMobileUA || isSmallTouch;
+
+  cta.setAttribute('href', isMobile ? 'tel:+17273325248' : '#contact');
+})();
+
+// Hero CTA: subtle breathing animation on load, then occasionally.
+(function () {
+  const cta = document.getElementById('heroCallNowBtn');
+  if (!cta) return;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  const cycleMs = 9000;
+  let intervalId = null;
+  let hoverPaused = false;
+
+  function runBreath() {
+    if (hoverPaused) return;
+    cta.classList.remove('is-breathing');
+    // Force reflow so repeated class toggles always retrigger animation.
+    void cta.offsetWidth;
+    cta.classList.add('is-breathing');
+  }
+
+  function startCycle() {
+    if (intervalId) clearInterval(intervalId);
+    intervalId = setInterval(() => {
+      runBreath();
+    }, cycleMs);
+  }
+
+  runBreath();
+  startCycle();
+
+  cta.addEventListener('mouseenter', () => {
+    hoverPaused = true;
+    cta.classList.remove('is-breathing');
+  });
+
+  cta.addEventListener('mouseleave', () => {
+    hoverPaused = false;
+    startCycle();
+  });
+})();
+
 // Smooth scroll for in-page anchors, slower for #contact
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
@@ -53,46 +106,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     menu.classList.remove('is-open');
     toggle.setAttribute('aria-expanded', 'false');
   }));
-})();
-
-// Parallax the hero background on scroll (skips reduced motion and small screens).
-(function () {
-  const hero = document.getElementById('hero');
-  const bg   = hero?.querySelector('.hero__bg');
-  if (!hero || !bg) return;
-
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const smallScreen = window.matchMedia('(max-width: 640px)').matches;
-  if (prefersReduced || smallScreen) return;
-
-  const START = 15;
-  const END   = 82;
-  const SPEED = 1.5;
-
-  let ticking = false;
-  const clamp = (n, a, b) => Math.min(Math.max(n, a), b);
-
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-
-    requestAnimationFrame(() => {
-      const rect = hero.getBoundingClientRect();
-      // Amount of the hero that has scrolled past the top.
-      const scrolled = Math.max(0, -rect.top);
-
-      // Progress reaches 1.0 faster with SPEED.
-      const progress = clamp(scrolled / (rect.height / SPEED), 0, 1);
-
-      const y = START + (END - START) * progress;
-      bg.style.setProperty('--bgY', `${y}%`);
-      ticking = false;
-    });
-  }
-
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
 })();
 
 // Success stories swiper
