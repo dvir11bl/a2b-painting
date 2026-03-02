@@ -108,69 +108,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   }));
 })();
 
-// Success stories swiper
-new Swiper('.success-swiper', {
-  slidesPerView: 1,
-  spaceBetween: 0,
-  centeredSlides: false,
-
-  // Loop slides.
-  loop: true,
-  speed: 900,
-
-  // Autoplay and pause on hover.
-  autoplay: {
-    delay: 4000,
-    disableOnInteraction: false,
-    pauseOnMouseEnter: true,
-  },
-
-  navigation: {
-    nextEl: '.success-swiper .swiper-button-next',
-    prevEl: '.success-swiper .swiper-button-prev',
-  },
-  pagination: {
-    el: '.success-swiper .swiper-pagination',
-    clickable: true,
-  },
-
-});
-
-// Wrap story title/subtitle with avatar for consistent layout
-(function(){
-  const cards = document.querySelectorAll('#success .story-card');
-  if (!cards.length) return;
-  cards.forEach(card => {
-    const title = card.querySelector('.story__title');
-    const subtitle = card.querySelector('.story__subtitle');
-    if (!title || !subtitle) return;
-
-    // Create header wrapper.
-    const header = document.createElement('div');
-    header.className = 'story__header';
-
-    // Use existing avatar or create a default
-    let img = card.querySelector('.story__avatar');
-    if (!img) {
-      img = document.createElement('img');
-      img.className = 'story__avatar';
-      img.src = 'assets/media/avatar-default.svg';
-      img.alt = `Photo of ${title.textContent?.trim() || 'storyteller'}`;
-    }
-
-    // Meta container for title/subtitle
-    const meta = document.createElement('div');
-    meta.className = 'story__meta';
-
-    // Insert header and move nodes into it
-    card.insertBefore(header, title);
-    meta.appendChild(title);
-    meta.appendChild(subtitle);
-    header.appendChild(img);
-    header.appendChild(meta);
-  });
-})();
-
 // Submit contact form as JSON to /contact_api.php
 (function(){
   const form = document.getElementById('contactForm');
@@ -235,21 +172,11 @@ new Swiper('.success-swiper', {
   });
 })();
 
-// Toggle the privacy modal open/close.
+// Footer copyright year
 (function(){
-  const openBtn = document.getElementById('privacy-link');
-  const closeBtn = document.getElementById('close-privacy');
-  const modal = document.getElementById('privacy-modal');
-  if (!openBtn || !closeBtn || !modal) return;
-
-  openBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal.style.display = 'block';
-  });
-
-  closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
+  const yearEl = document.getElementById('footerYear');
+  if (!yearEl) return;
+  yearEl.textContent = String(new Date().getFullYear());
 })();
 
 // Zoom feature for flash cards from the mouse entry corner

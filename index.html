@@ -12,7 +12,6 @@
   <link rel="preload" as="image" href="assets/media/hero.jpg" imagesrcset="assets/media/hero.jpg 1x" />
   <link rel="stylesheet" href="./style.css" />
   <script src="./main.js" defer></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <!-- Favicon Configuration -->
   <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
@@ -38,9 +37,9 @@
 
     <button class="nav__toggle" aria-expanded="false" aria-controls="siteMenu" aria-label="Menu">☰</button>
     <ul id="siteMenu" class="menu" role="list">
-      <li><a class="nav__link" href="#about">About Us</a></li>
       <li><a class="nav__link" href="#services">Services</a></li>
-      <li><a class="nav__link" href="#success">Customers Say</a></li>
+       <li><a class="nav__link" href="#about">About Us</a></li>
+      <li><a class="nav__link" href="#reviews">Customers Say</a></li>
       <li><a class="btn btn--brand nav__cta" href="#contact">Contact Us</a></li>
     </ul>
   </nav>
@@ -148,9 +147,9 @@
         <div class="choose-a2b__layout">
           <div class="choose-a2b__about">
             <p class="choose-a2b__text">
-              A2B Painting is an owner-operated business focused on quality, reliability, and attention to detail.
-              Every project is handled with care, from preparation to final walkthrough, ensuring your home looks
-              its best.
+              We in A2B Ultra Solutions believe that honesty, integrity and professionalism are 
+              the secret to happy customers and future relationships. We work with private owners,
+              property managers and realtors to create pleasant and beautiful homes.
             </p>
           </div>
 
@@ -199,140 +198,62 @@
       </div>
     </section>
 
-<!-- TEAM -->
-<section id="team" class="section section--soft team" aria-label="Team">
+<!-- WHAT CUSTOMERS SAY -->
+<section id="reviews" class="section section--soft testimonials" aria-label="What Customers Say">
   <div class="container container--wide">
+    <header class="testimonials__head">
+      <h2 class="testimonials__title">What Customers Say</h2>
+      <p class="testimonials__subline">
+        Proudly rated 5.0 stars on
+        <span class="google-wordmark" aria-label="Google">
+          <span class="google-wordmark__g1">G</span><span class="google-wordmark__o1">o</span><span class="google-wordmark__o2">o</span><span class="google-wordmark__g2">g</span><span class="google-wordmark__l">l</span><span class="google-wordmark__e">e</span>
+        </span>.
+      </p>
+    </header>
 
-    <!-- Section title-->
-    <h2 class="section__title">הצוות שלנו</h2>
+    <div class="testimonials__rating" aria-label="5.0 rating based on 13 Google reviews">
+      <div class="testimonials__stars" aria-hidden="true">★★★★★</div>
+      <p class="testimonials__rating-value">5.0 Rating</p>
+      <p class="testimonials__rating-base">Based on 13 Google Reviews</p>
+    </div>
 
-    <!-- Section content-->
-    <div class="team__grid" role="list">
-      <article class="team__member" role="listitem">
-        <div class="team__photo-frame">
-          <img class="team__photo" src="assets/media/Shelley.jpg" alt="Shelley Adiv" />
-        </div>
-        <h3 class="team__name">שלי אדיב</h3>
-        <p class="team__bio">
-          מנהלת התוכנית. 26 שנות ניסיון בטיפול ואימון.
-          <br> הומאופתית קלאסית ומטפלת בדיאנטיקה.
+    <div class="testimonials__grid" role="list" aria-label="Google reviews">
+      <article class="review-card" role="listitem">
+        <div class="review-card__stars" aria-hidden="true">★★★★★</div>
+        <p class="review-card__text">
+          Honest and quick came and saw there was no leak on the toilet so he didn’t charge. 
+          In addition installed the light for fan was very professional and great experience. 
+          Thank you so much!
         </p>
+        <p class="review-card__name">Connor T.</p>
       </article>
 
-      <article class="team__member" role="listitem">
-        <div class="team__photo-frame">
-          <img class="team__photo" src="assets/media/Meir.jpg" alt="Meir Blorian" />
-        </div>
-        <h3 class="team__name">מאיר בלוריאן</h3>
-        <p class="team__bio">מנהל כללי ואחראי חווית לקוח.</p>
+      <article class="review-card" role="listitem">
+        <div class="review-card__stars" aria-hidden="true">★★★★★</div>
+        <p class="review-card__text">Amazing work, proffesional, on time, 
+          and always figures out the best and most cost effective solution.</p>
+        <p class="review-card__name">Pinkas A.</p>
+      </article>
+
+      <article class="review-card" role="listitem">
+        <div class="review-card__stars" aria-hidden="true">★★★★★</div>
+        <p class="review-card__text">Great service by a great guy! Super professional, trustworthy <br>and fair price</p>
+        <p class="review-card__name">Daphny G.</p>
+      </article>
+
+      <article class="review-card" role="listitem">
+        <div class="review-card__stars" aria-hidden="true">★★★★★</div>
+        <p class="review-card__text">The owner is fully focused on providing the highest quality knowledge, products, and work - at very affordable rates.
+          He is available in emergency situations and took care of one of my Rental Home's issue 
+          with prompt attention</p>
+        <p class="review-card__name">Clay S.</p>
       </article>
     </div>
-  </div>
-</section>
 
-<!-- SUCCESS -->
-<section id="success" class="section section--soft" aria-label="סיפורי הצלחה">
-  <div class="container container--wide">
-
-    <!-- Section title-->
-    <h2 class="section__title">סיפורי הצלחה</h2>
-
-    <!-- Section content-->
-    <p class="section__text">סיפורים של אנשים שקיבלו דיאנטיקה.</p>
-
-    <!-- Swiper -->
-    <div class="swiper success-swiper">
-      <div class="swiper-wrapper">
-
-        <!-- Slide 1 -->
-        <div class="swiper-slide">
-          <article class="story-card">
-            <img class="story__avatar" src="assets/media/asaf.jpeg" alt="אסף הלבני" />
-            <h3 class="story__title">אסף הלבני</h3>
-            <p class="story__subtitle">שכל את אחיו</p>
-            <div class="story__text">
-              <p>
-                ״המלחמה תפסה אותי כמ''פ קבע של פלוגת הכשרה בחיל השריון.
-                ביום השלישי למלחמה העירו אותי באמצע הלילה והודיעו לי שאחי הגדול,
-                סרן יובל הליבני נהרג בקרב בצומת שער הנגב לאחר שהפלוגה שלו נקלעה למארב של מחבלים שהתבצרו במקום.
-                באותו רגע הרגשתי שנהרסו לי החיים ואני לא יודע איך להמשיך משם.
-                אחרי שבוע של שבעה והתאבלות על אחי חזרתי לצבא לחצי שנה של סבל גדול.
-                לא הצלחתי לחזור להיות המפקד שהייתי והאדם המלא שמחה שהייתי והרגשתי שנהרסו לי החיים.
-                אחרי השחרור שלי הציעו לי להגיע ולקבל סשן של דיאנטיקה, לא הייתה לי ממשות על מה זה כל-כך אבל הסכמתי.
-                כבר אחרי הסשן הראשון הרגשתי איך כל דרך ההסתכלות שלי על האבל והאובדן משתנה.
-                לאחר 40 שעות של קבלת סשנים של דיאנטיקה הרגשתי שאני יכול לנשום שוב. הרגשתי שמגיע לי להיות שמח,
-                להיות מאושר ולבנות את החיים שעליהם חלמתי לפני המוות של אחי.
-                שחררתי מעליי את האשמה שאני חי והוא מת, והבנתי שהוא היה רוצה בשבילי שאהיה שמח ואחיה את החיים באופן הכי
-                שלם שיש.
-                כיום, שנה וחצי אחר כך, אני יותר שמח משהייתי אי פעם על אף המחסור התמידי של אחי האהוב.
-                אין ספק שלא הייתי במצב שאני נמצא בו היום ללא הטכנולוגיה המדהימה של דיאנטיקה!״
-              </p>
-            </div>
-          </article>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="swiper-slide">
-          <article class="story-card">
-            <img class="story__avatar" src="assets/media/eyal.jpeg" alt="איל בן תמר" />
-            <h3 class="story__title">איל בן תמר</h3>
-            <p class="story__subtitle">הלום קרב</p>
-            <div class="story__text">
-              <p>
-                ״השתתפתי במלחמת שלום הגליל בחיל ההנדסה. במסגרת הלחימה איבדתי חברים קרובים,
-                יצאתי משם בהלם קרב. לא הייתי מודע למצב שלי, תופעות הגיעו אחת אחרי השניה - קוצר נשימה, חרדות ותמונות קשות
-                -
-                כל דבר שהזכיר משהו מהמלחמה החזיר אותי לכל הסרטים והתמונות מהמלחמה. סבלתי למעלה מ-30 שנים עד שנתקלתי
-                בדיאנטיקה - אז הבנתי מה עובר עליי.
-                קיבלתי תהליכים מדויקים שכבר בהתחלה נתנו לי הקלה מדהימה,
-                עד שבסופו של התהליך נפטרתי לגמרי מכל התופעות והיום אני מאושר וללא שום זכר לכל התופעות שחוויתי בעבר מההלם
-                קרב.
-                אני מאד ממליץ לכל מי שחווה את מה שאני חוויתי,
-                להשתמש בדיאנטיקה. הטיפול במאורעות הקשים הוא מאד מדויק ומוציא את כל התופעות מהשורש והופך אותך למה שאני
-                מתאר את עצמי: אדם שנולד מחדש.״
-
-              </p>
-            </div>
-          </article>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="swiper-slide">
-          <article class="story-card">
-            <img class="story__avatar" src="assets/media/sonia.jpeg" alt="סוניה דוידוב" />
-            <h3 class="story__title">סוניה דוידוב</h3>
-            <p class="story__subtitle">נמלטה משדרות תחת אש</p>
-            <div class="story__text">
-              <p>
-                “ב-7 באוקטובר 2023 נאלצתי לברוח משדרות.
-                הייתי תקועה שעות בממד עם הכלבה שלי, שמעתי את הירי בחוץ ולא ידעתי אם זה הסוף שלי או לא.
-                פתאום שמעתי דפיקות בדלת ומישהו צועק את שמי, הייתי מבולבלת לרגע אבל יצאתי מהממד ופתחתי את הדלת, ידיד שלי
-                עמד שם ואמר – “בואי, אנחנו בורחים”. היה לו אקדח ומשהו בי אמר לי שזה הדבר הנכון לעשות. היינו תחת אש וזה
-                היה מפחיד אבל חבר שלי קיבל כמה החלטות נכונות והגענו בשלום למרכז הארץ.
-                ברחתי משדרות אבל… לא ברחתי מהטראומה, או כמו שאמרתי – עזבתי את שדרות אבל שדרות לא עזבה אותי. חייתי את ה-7
-                באוקטובר בכל רגע. חוויתי לחץ וחרדה והייתי ערנית ודרוכה כל הזמן. “שמעתי” ירי לא קיים ו“ראיתי” טרוריסטים
-                רודפים אחריי. הגוף שלי רעד ולא יכולתי לראות שום עתיד. הייתי בייאוש.
-                היה בלתי אפשרי לחיות עם כל הלחץ הזה.
-                התקשרתי לשלי שעזרה לי בעבר עם בעיה גופנית שהייתה לי והיא הגיעה למקום בו שהיתי כדי לעשות לי טיפול
-                דיאנטיקה. לא ידעתי למה אני נכנסת אבל סמכתי על שלי.
-                שלי ישבה איתי 7 שעות!!! היא הסבירה לי מה אנחנו הולכים לעשות ואז נכנסה לפעולה.
-                בסוף הפגישה יכולתי לחייך, יכולתי להירגע, המיינד שלי כבר לא זרק עליי תמונות מזעזעות והמטען שסחבתי נעלם!
-                דיאנטיקה זה כלי מדהים, צריך להשתמש בו באופן נרחב על כל קורבנות הטרור ועל כל מי שחווה טראומה בחיים.
-                קיבלתי חיים חדשים, מצאתי מקום נחמד לחיות בו, מצאתי מטרה ואני בדרך לעתיד טוב שיצרתי לי.
-                תודה שלי!״
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <!-- Controls -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
+    <div class="testimonials__actions">
+      <a class="btn btn--google-outline" href="https://share.google/5uk2nm3M9mEMheKbw" target="_blank" rel="noopener noreferrer">View All Reviews on Google <span class="btn__ext-icon" aria-hidden="true">↗</span></a>
     </div>
   </div>
-
 </section>
 
     <!-- CONTACT -->
@@ -340,175 +261,143 @@
       <div class="container container--wide">
     
         <!-- Section title-->
-        <h2 class="section__title">אנחנו רוצים לעזור לך<br> בוא נדבר</h2>
+        <h2 class="section__title">Get Your Free Estimate</h2>
     
         <!-- Section content -->
-        <p class="section__text">השאירו פרטים ונחזור אליכם עם מידע נוסף ושאלון התאמה.</p>
-    
-        <!-- Contact form -->
-        <form id="contactForm" class="contact__form" novalidate>
-          <div class="form__row">
-    
-            <!-- Full name -->
-            <div class="field">
-              <label for="name">שם מלא</label>
-              <input id="name" name="name" type="text" required placeholder="ישראל ישראלי" />
+        <p class="section__text">Call, email, or send a quick request — we'll get back to you promptly.</p>
+
+        <div class="contact__layout">
+          <aside class="contact__info" aria-label="Contact details">
+            <div class="contact-info__item contact-info__item--call">
+              <p class="contact-info__label">
+                <span class="contact-info__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24c1.1.36 2.28.56 3.5.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.3 21 3 13.7 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.22.2 2.4.56 3.5a1 1 0 0 1-.24 1l-2.2 2.3z"/></svg>
+                </span>
+                Call or Text:
+              </p>
+              <a class="contact-info__phone" href="tel:7276431680">(727) 643-1680</a>
             </div>
-    
-            <!-- Phone number -->
-            <div class="field">
-              <label for="phone">טלפון</label>
-              <input id="phone" name="phone" type="tel" inputmode="tel" pattern="[0-9+\-\s]{8,}" required
-                placeholder="050-1234567" />
+
+            <div class="contact-info__item">
+              <p class="contact-info__label">
+                <span class="contact-info__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 3.2l-8 5-8-5V6l8 5 8-5v1.2z"/></svg>
+                </span>
+                Email:
+              </p>
+              <a class="contact-info__email" href="mailto:loozamin@gmail.com">loozamin@gmail.com</a>
             </div>
-          </div>
-    
-          <div class="form__row">
-    
-            <!-- Email address -->
-            <div class="field field--full">
-              <label for="email">אימייל</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" />
+
+            <div class="contact-info__item">
+              <p class="contact-info__label">Serving:</p>
+              <p class="contact-info__detail">Tampa Bay Area</p>
             </div>
-          </div>
-    
-          <!-- Consent checkbox -->
-          <div class="form__row form__row--consent">
-            <div class="field field--full form__consent">
-              <div class="form__consent-line">
-                <input id="consent" name="consent" type="checkbox" required />
-                <label for="consent">אני מאשר את שליחת המידע</label>
+
+            <div class="contact-info__item">
+              <p class="contact-info__label">Business Hours:</p>
+              <p class="contact-info__detail">Sunday: Closed<br>Monday-Saturday: 8:00 AM - 5:00 PM</p>
+            </div>
+          </aside>
+
+          <!-- Contact form -->
+          <form id="contactForm" class="contact__form" novalidate>
+            <div class="form__row">
+      
+              <!-- Full name -->
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required placeholder="Your full name" />
               </div>
-              <div class="form__note">מסירת המידע היא מרצון ובהסכמה. אם לא תמסור פרטים, לא נוכל ליצור איתך קשר או לטפל
-                בפנייתך.</div>
+
+              <!-- Phone number -->
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" inputmode="tel" pattern="[0-9+\-\s]{8,}" required
+                  placeholder="(727) 643-1680" />
+              </div>
             </div>
-          </div>
-    
-          <!-- Submit button -->
-          <div class="form__actions">
-            <button type="submit" class="btn btn--brand">חזרו אליי!</button>
-            <span id="contactFormStatus" class="form__status" aria-live="polite"></span>
-          </div>
-    
-          <!-- Success overlay -->
-          <div class="form__success" aria-hidden="true" tabindex="-1">
-            <div class="form__success-icon" aria-hidden="true">✓</div>
-            <div class="form__success-text">תודה! קיבלנו את הפנייה שלכם — אנחנו על זה.</div>
-          </div>
-        </form>
+
+            <div class="form__row">
+              <div class="field">
+                <label for="cityZip">City or Zip</label>
+                <input id="cityZip" name="cityZip" type="text" required placeholder="Tampa or 33602" />
+              </div>
+
+              <div class="field">
+                <label for="projectType">Project Type</label>
+                <select id="projectType" name="projectType">
+                  <option value="">Select one</option>
+                  <option value="interior">Interior Painting</option>
+                  <option value="exterior">Exterior Painting</option>
+                  <option value="trim-doors">Trim and Doors</option>
+                  <option value="drywall-patching">Drywall Patching</option>
+                  <option value="cabinet-painting">Cabinet Painting</option>
+                  <option value="pressure-washing">Pressure Washing</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="field field--full">
+                <label for="message">Optional message</label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell us a bit about your project."></textarea>
+              </div>
+            </div>
+      
+            <!-- Submit button -->
+            <div class="form__actions">
+              <button type="submit" class="btn btn--brand">Request Free Estimate</button>
+              <span id="contactFormStatus" class="form__status" aria-live="polite"></span>
+            </div>
+            <p class="contact__reassurance">No spam. No pressure. Just honest estimates.</p>
+      
+            <!-- Success overlay -->
+            <div class="form__success" aria-hidden="true" tabindex="-1">
+              <div class="form__success-icon" aria-hidden="true">✓</div>
+              <div class="form__success-text">Thank you! We received your request and will contact you soon.</div>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
   </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container footer__row">
-
-      <!-- Branding -->
-      <div class="footer__brand">
-        <img src="assets/media/Logo.svg" width="40" height="40" alt="" />
-        <span>בוחרים בחיים</span>
+    <div class="container footer__grid">
+      <div class="footer__col footer__col--brand">
+        <div class="footer__logo-ring">
+          <img class="footer__logo" src="assets/media/Logo.svg" width="120" height="120" alt="A2B Painting logo" />
+        </div>
+        <p class="footer__tagline">Painting done right.</p>
+        <p class="footer__serving">Serving Tampa Bay Area</p>
       </div>
 
-      <!-- Sections links-->
-      <ul class="footer__links" role="list">
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#success">סיפורי הצלחה</a></li>
-      </ul>
+      <div class="footer__col">
+        <h3 class="footer__heading">Quick Links</h3>
+        <ul class="footer__links" role="list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#reviews">Reviews (Success Stories)</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__heading">Contact &amp; Hours</h3>
+        <p class="footer__line"><span class="footer__label">Call or Text:</span> <a href="tel:7276431680">(727) 643-1680</a></p>
+        <p class="footer__line"><span class="footer__label">Email:</span> <a href="mailto:loozamin@gmail.com">loozamin@gmail.com</a></p>
+        <p class="footer__line"><span class="footer__label">Hours:</span><br>Sunday: Closed<br>Mon-Sat: 8:00 AM - 5:00 PM</p>
+        <p class="footer__line"><span class="footer__label">Serving:</span> Tampa Bay Area</p>
+      </div>
     </div>
-    
 
-    <!-- Privacy policy link -->
-<div class="privacy-link-wrap">
-  <a href="#" id="privacy-link" class="privacy-link">מדיניות פרטיות</a>
-</div>
-
-<!-- Privacy policy modal -->
-<div id="privacy-modal" class="privacy-modal">
-  <div class="privacy-modal__content">
-    <button id="close-privacy" class="privacy-modal__close">סגור ✖</button>
-    <h2 class="privacy-modal__title">מדיניות פרטיות – אתר "בוחרים בחיים"</h2>
-    <p class="privacy-modal__updated">עודכן בתאריך: 16 באוקטובר 2025<br>בהתאם לתיקון 13 לחוק הגנת הפרטיות, התשמ"א–1981</p>
-    <div class="privacy-modal__body">
-      <!-- Privacy policy content -->
-      <p><strong>ברוכים הבאים לאתר "בוחרים בחיים"</strong> (להלן: "האתר"). אנחנו מכבדים את פרטיותך ורוצים שתדע כיצד אנו שומרים ומעבדים את המידע שלך.</p>
-
-      <h3>1. מי אנחנו</h3>
-      <p>האתר מופעל על ידי חברת <strong>A2B Ultra Solutions</strong> מספר חברה: 33-2626093<br>
-      כתובת: 917 Turner St. Clearwater Florida USA<br>
-      דוא"ל: <a href="mailto:shelley@a2b-infra.com">shelley@a2b-infra.com</a><br>
-      טלפון: ‎+1-727-643-1767<br>
-      איש קשר לענייני פרטיות: שלי אדיב</p>
-
-      <h3>2. איזה מידע אנחנו אוספים</h3>
-      <ul>
-        <li>מידע שאתה מוסר מרצונך – כמו שם, טלפון, דוא"ל, ותוכן הודעה.</li>
-        <li>מידע טכני (IP, דפדפן, מערכת הפעלה).</li>
-        <li>עוגיות (Cookies) המשמשות לניתוח ולשיפור חוויית השימוש.</li>
-      </ul>
-
-      <h3>3. למה אנחנו אוספים את המידע</h3>
-      <ul>
-        <li>כדי ליצור איתך קשר לאחר שמילאת טופס.</li>
-        <li>כדי לשפר את האתר והשירותים.</li>
-        <li>כדי לנהל קמפיינים שיווקיים של האתר בלבד.</li>
-      </ul>
-
-      <h3>4. כמה זמן נשמור את המידע</h3>
-      <p>עד שתבקש למחוק או עד 12 חודשים למידע טכני, לפי הצורך.</p>
-
-      <h3>5. למי אנחנו מוסרים מידע</h3>
-      <ul>
-        <li>מערכות דיוור (רב מסר, Brevo).</li>
-        <li>שירותי אחסון וניתוח נתונים (Google, Meta).</li>
-      </ul>
-
-      <h3>6. העברת מידע לחו"ל</h3>
-      <p>העברה נעשית רק לגורמים שמתחייבים לשמירה על רמת הגנה זהה לחוק בישראל או GDPR.</p>
-
-      <h3>7. הזכויות שלך</h3>
-      <ul>
-        <li>עיון, תיקון, מחיקה, התנגדות, ניידות מידע.</li>
-        <li>פנייה לרשות להגנת הפרטיות: 
-          <a href="https://www.gov.il/he/departments/the_privacy_protection_authority/govil-landing-page" target="_blank">
-          רשות להגנת הפרטיות</a>
-        </li>
-      </ul>
-
-      <h3>8. שימוש בעוגיות (Cookies)</h3>
-      <p>אנחנו משתמשים בעוגיות חיוניות, אנליטיות ושיווקיות. ניתן לנהל או למחוק אותן דרך הגדרות הדפדפן. עוגיות אנליטיות ושיווקיות נופעלות רק באישור מפורש (Opt-in).</p>
-
-      <h3>9. איך אנחנו מגנים על המידע</h3>
-      <p>באמצעות הצפנה, גיבויים ושרתים מאובטחים.</p>
-
-      <h3>10. יצירת קשר</h3>
-      <p>
-      שלי אדיב<br>
-      טלפון: ‎+1-727-643-1767<br>
-      וואטסאפ: ‎054-319-7720<br>
-      דוא"ל: <a href="mailto:shelley@a2b-infra.com">shelley@a2b-infra.com</a>
-      </p>
-
-      <p class="privacy-modal__closing">
-      בעת שליחת פרטיך בטופס באתר, הינך מאשר/ת כי קראת והסכמת למדיניות הפרטיות. ניתן בכל עת לעיין במידע, לתקנו או לבקש את מחיקתו.
-      </p>
-    </div>
-  </div>
-</div>
-
-<!-- Copyright -->
-<div class="container footer__copy">
-      <small>© 2025 כל הזכויות שמורות. שלי אדיב.<br>
-      דיאנטיקה היא סימן מסחרי וסימן שירות בבעלות Religious Technology Center ונמצאים בשימוש באישורו.
-      © כל הזכויות שמורות – אתר "בוחרים בחיים"
-      מדיניות פרטיות בהתאם לתיקון 13 לחוק הגנת הפרטיות | לפניות בנושא פרטיות 
-      : shelley@a2b-infra.com</small>
+    <div class="footer__bar">
+      <div class="container footer__copy">
+        <small>&copy; <span id="footerYear"></span> A2B Painting. All rights reserved.</small>
+      </div>
     </div>
   </footer>
-
-  <!-- Success section swiper link -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 </body>
 </html>
