@@ -1,15 +1,8 @@
 {
-  "name": "api",
+  "name": "a2b-swa-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "nodemailer": "^8.0.1"
+  "private": true,
+  "engines": {
+    "node": "20.x"
   }
 }
