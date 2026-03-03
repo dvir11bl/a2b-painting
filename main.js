@@ -108,7 +108,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   }));
 })();
 
-// Submit contact form as JSON to /contact_api.php
+// Submit contact form via submitContact(formData)
 (function(){
   const form = document.getElementById('contactForm');
   if (!form) return;
@@ -131,17 +131,14 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     const payload = {
       name: (form.querySelector('#name')?.value || '').trim(),
       phone: (form.querySelector('#phone')?.value || '').trim(),
-      email: (form.querySelector('#email')?.value || '').trim(),
+      cityZip: (form.querySelector('#cityZip')?.value || '').trim(),
+      projectType: (form.querySelector('#projectType')?.value || '').trim(),
+      message: (form.querySelector('#message')?.value || '').trim(),
+      website: (form.querySelector('input[name="website"]')?.value || '').trim(),
     };
 
     try {
-      const res = await fetch('/contact_api.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-
-      if (!res.ok) throw new Error('Request failed');
+      await submitContact(payload);
       if (statusEl) {
         statusEl.textContent = 'Thank you! We received your request.';
       }
@@ -232,3 +229,17 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
   });
 })();
+
+// Submission Handler
+
+async function submitContact(formData) {
+  const res = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData),
+  });
+
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok || !data.ok) throw new Error(data.error || "Submit failed");
+  return true;
+}
