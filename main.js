@@ -1,3 +1,5 @@
+console.log("main.js loaded");
+
 // Smooth scroll for elements with data-scroll-target
 document.querySelectorAll('[data-scroll-target]').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -108,66 +110,96 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   }));
 })();
 
-// Submit contact form via submitContact(formData)
-(function(){
-  const form = document.getElementById('contactForm');
-  if (!form) return;
-  const statusEl = document.getElementById('contactFormStatus');
+// Contact form submission to Azure Static Web Apps API
+document.addEventListener("DOMContentLoaded", () => {
+  const form =
+    document.getElementById("contact-form") ||
+    document.getElementById("contactForm") ||
+    document.querySelector("form.contact__form");
+  if (!form) {
+    console.error("Contact form not found: expected #contact-form, #contactForm, or form.contact__form");
+    return;
+  }
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!form.checkValidity()) {
-      form.reportValidity();
+  let statusEl = document.getElementById("contactFormStatus") || document.getElementById("form-status");
+  if (!statusEl) {
+    statusEl = document.createElement("p");
+    statusEl.id = "form-status";
+    statusEl.setAttribute("aria-live", "polite");
+    statusEl.style.marginTop = "10px";
+    form.appendChild(statusEl);
+  }
+
+  console.log("submit handler attached");
+
+  form.addEventListener("submit", async (event) => {
+    console.log("submit fired");
+    event.preventDefault();
+
+    const submitBtn =
+      form.querySelector('button[type="submit"]') ||
+      form.querySelector(".form__actions button");
+    const originalBtnText = submitBtn?.textContent;
+
+    const name = (form.querySelector("#name")?.value || form.querySelector('[name="name"]')?.value || "").trim();
+    const phone = (form.querySelector("#phone")?.value || form.querySelector('[name="phone"]')?.value || "").trim();
+    const email = (form.querySelector("#email")?.value || form.querySelector('[name="email"]')?.value || "").trim();
+    const cityZip = (form.querySelector("#cityZip")?.value || form.querySelector('[name="cityZip"]')?.value || "").trim();
+    const projectType = (form.querySelector("#projectType")?.value || form.querySelector('[name="projectType"]')?.value || "").trim();
+    const message = (form.querySelector("#message")?.value || form.querySelector('[name="message"]')?.value || "").trim();
+
+    statusEl.style.opacity = "1";
+    statusEl.style.transform = "none";
+    statusEl.style.color = "";
+    statusEl.textContent = "";
+
+    if (!name || !phone || !cityZip) {
+      statusEl.textContent = "Please fill in Name, Phone, and City or Zip.";
+      statusEl.style.color = "#FF7A00";
       return;
     }
 
-    const actions = form.querySelector('.form__actions');
-    const submitBtn = actions?.querySelector('button');
-    const originalText = submitBtn?.textContent;
-    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
-    if (statusEl) { statusEl.textContent = ''; statusEl.style.color = ''; }
-
-    // Collect form fields
     const payload = {
-      name: (form.querySelector('#name')?.value || '').trim(),
-      phone: (form.querySelector('#phone')?.value || '').trim(),
-      cityZip: (form.querySelector('#cityZip')?.value || '').trim(),
-      projectType: (form.querySelector('#projectType')?.value || '').trim(),
-      message: (form.querySelector('#message')?.value || '').trim(),
-      website: (form.querySelector('input[name="website"]')?.value || '').trim(),
+      name,
+      phone,
+      email,
+      cityZip,
+      projectType,
+      message,
+      submittedAt: new Date().toISOString(),
     };
 
     try {
-      await submitContact(payload);
-      if (statusEl) {
-        statusEl.textContent = 'Thank you! We received your request.';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
       }
 
-      // Show success overlay and hide the submit button
-      const overlay = form.querySelector('.form__success');
-      const overlayText = form.querySelector('.form__success-text');
-      const actions = form.querySelector('.form__actions');
-      if (overlay) {
-        overlay.removeAttribute('aria-hidden');
-        overlay.focus?.();
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
       }
-      if (overlayText) {
-        overlayText.textContent = 'Thank you! We received your request and will contact you soon.';
-      }
-      if (submitBtn) submitBtn.classList.add('is-hidden');
-      if (actions) actions.classList.add('submitted');
-      form.classList.add('submitted');
+
+      statusEl.textContent = "Thank you! Your request was submitted successfully.";
+      statusEl.style.color = "#0B2D5C";
       form.reset();
-    } catch (err) {
-      if (statusEl) {
-        statusEl.textContent = 'We could not send your request. Please try again.';
-        statusEl.style.color = '#FF7A00';
-      }
+    } catch (error) {
+      console.error("Contact form submission failed:", error);
+      statusEl.textContent = "Submission failed. Please try again.";
+      statusEl.style.color = "#FF7A00";
     } finally {
-      if (submitBtn) { submitBtn.disabled = false; if (originalText) submitBtn.textContent = originalText; }
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        if (originalBtnText) submitBtn.textContent = originalBtnText;
+      }
     }
   });
-})();
+});
 
 // Footer copyright year
 (function(){
@@ -227,62 +259,5 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       card.style.transformOrigin = '';
       card.style.transform = '';
     });
-  });
-})();
-
-// Submission Handler
-
-async function submitContact(formData) {
-  const res = await fetch("/api/contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(formData),
-  });
-
-  const data = await res.json().catch(() => ({}));
-  if (!res.ok || !data.ok) throw new Error(data.error || "Submit failed");
-  return true;
-}
-
-// Static site contact form submit handler for Azure SWA API
-(function () {
-  const form = document.getElementById("contact-form");
-  if (!form) return;
-
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    const payload = {
-      name: (document.querySelector("#name")?.value || "").trim(),
-      phone: (document.querySelector("#phone")?.value || "").trim(),
-      email: (document.querySelector("#email")?.value || "").trim(),
-      cityZip: (document.querySelector("#cityZip")?.value || "").trim(),
-      projectType: (document.querySelector("#projectType")?.value || "").trim(),
-      message: (document.querySelector("#message")?.value || "").trim(),
-      submittedAt: new Date().toISOString(),
-    };
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (response.ok) {
-        const statusEl = document.getElementById("contactFormStatus");
-        if (statusEl) statusEl.textContent = "Thank you! Your request was submitted successfully.";
-        else alert("Thank you! Your request was submitted successfully.");
-        form.reset();
-        return;
-      }
-
-      throw new Error(`Request failed with status ${response.status}`);
-    } catch (error) {
-      console.error("Contact form submission failed:", error);
-      const statusEl = document.getElementById("contactFormStatus");
-      if (statusEl) statusEl.textContent = "Submission failed. Please try again.";
-      else alert("Submission failed. Please try again.");
-    }
   });
 })();
