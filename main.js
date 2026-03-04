@@ -243,3 +243,46 @@ async function submitContact(formData) {
   if (!res.ok || !data.ok) throw new Error(data.error || "Submit failed");
   return true;
 }
+
+// Static site contact form submit handler for Azure SWA API
+(function () {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const payload = {
+      name: (document.querySelector("#name")?.value || "").trim(),
+      phone: (document.querySelector("#phone")?.value || "").trim(),
+      email: (document.querySelector("#email")?.value || "").trim(),
+      cityZip: (document.querySelector("#cityZip")?.value || "").trim(),
+      projectType: (document.querySelector("#projectType")?.value || "").trim(),
+      message: (document.querySelector("#message")?.value || "").trim(),
+      submittedAt: new Date().toISOString(),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        const statusEl = document.getElementById("contactFormStatus");
+        if (statusEl) statusEl.textContent = "Thank you! Your request was submitted successfully.";
+        else alert("Thank you! Your request was submitted successfully.");
+        form.reset();
+        return;
+      }
+
+      throw new Error(`Request failed with status ${response.status}`);
+    } catch (error) {
+      console.error("Contact form submission failed:", error);
+      const statusEl = document.getElementById("contactFormStatus");
+      if (statusEl) statusEl.textContent = "Submission failed. Please try again.";
+      else alert("Submission failed. Please try again.");
+    }
+  });
+})();
