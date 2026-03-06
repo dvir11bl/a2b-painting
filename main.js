@@ -134,6 +134,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log("submit handler attached");
 
+  const nameField = form.querySelector("#name") || form.querySelector('[name="name"]');
+  const phoneField = form.querySelector("#phone") || form.querySelector('[name="phone"]');
+  const cityZipField = form.querySelector("#cityZip") || form.querySelector('[name="cityZip"]');
+  const messageField = form.querySelector("#message") || form.querySelector('[name="message"]');
+
+  if (nameField) {
+    nameField.addEventListener("input", () => {
+      nameField.value = nameField.value.replace(/[0-9]/g, "").slice(0, 30);
+    });
+  }
+  if (phoneField) {
+    phoneField.addEventListener("input", () => {
+      phoneField.value = phoneField.value.replace(/\D/g, "").slice(0, 15);
+    });
+  }
+  if (cityZipField) {
+    cityZipField.addEventListener("input", () => {
+      cityZipField.value = cityZipField.value.slice(0, 20);
+    });
+  }
+  if (messageField) {
+    messageField.addEventListener("input", () => {
+      messageField.value = messageField.value.slice(0, 500);
+    });
+  }
+
   form.addEventListener("submit", async (event) => {
     console.log("submit fired");
     event.preventDefault();
@@ -143,48 +169,35 @@ document.addEventListener("DOMContentLoaded", () => {
       form.querySelector(".form__actions button");
     const originalBtnText = submitBtn?.textContent;
 
-    const name = (form.querySelector("#name")?.value || form.querySelector('[name="name"]')?.value || "").trim();
-    const phone = (form.querySelector("#phone")?.value || form.querySelector('[name="phone"]')?.value || "").trim();
-    const email = (form.querySelector("#email")?.value || form.querySelector('[name="email"]')?.value || "").trim();
-    const cityZip = (form.querySelector("#cityZip")?.value || form.querySelector('[name="cityZip"]')?.value || "").trim();
-    const message = (form.querySelector("#message")?.value || form.querySelector('[name="message"]')?.value || "").trim();
+    const nameInput = form.querySelector("#name") || form.querySelector('[name="name"]');
+    const phoneInput = form.querySelector("#phone") || form.querySelector('[name="phone"]');
+    const emailInput = form.querySelector("#email") || form.querySelector('[name="email"]');
+    const cityZipInput = form.querySelector("#cityZip") || form.querySelector('[name="cityZip"]');
+    const messageInput = form.querySelector("#message") || form.querySelector('[name="message"]');
+
+    const name = (nameInput?.value || "").replace(/[0-9]/g, "").slice(0, 30).trim();
+    const phone = (phoneInput?.value || "").replace(/\D/g, "").slice(0, 15);
+    const email = (emailInput?.value || "").trim();
+    const cityZip = (cityZipInput?.value || "").slice(0, 20).trim();
+    const message = (messageInput?.value || "").slice(0, 500).trim();
     const consentChecked = !!(form.querySelector("#consent")?.checked || form.querySelector('[name="consent"]')?.checked);
     const website = (form.querySelector("#website")?.value || form.querySelector('[name="website"]')?.value || "").trim();
     const formFillSeconds = Math.max(0, Math.round((Date.now() - formLoadedAt) / 1000));
     const submittedAt = new Date().toISOString();
+
+    if (nameInput) nameInput.value = name;
+    if (phoneInput) phoneInput.value = phone;
+    if (emailInput) emailInput.value = email;
+    if (cityZipInput) cityZipInput.value = cityZip;
+    if (messageInput) messageInput.value = message;
 
     statusEl.style.opacity = "1";
     statusEl.style.transform = "none";
     statusEl.style.color = "";
     statusEl.textContent = "";
 
-    if (!name || !phone || !email) {
-      statusEl.textContent = "Please fill in Name, Phone, and Email Address.";
-      statusEl.style.color = "#FF7A00";
-      return;
-    }
-
-    if (name.length > 30) {
-      statusEl.textContent = "Name must be 30 characters or less.";
-      statusEl.style.color = "#FF7A00";
-      return;
-    }
-
-    if (!/^\d{1,15}$/.test(phone)) {
-      statusEl.textContent = "Phone number must contain up to 15 digits.";
-      statusEl.style.color = "#FF7A00";
-      return;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      statusEl.textContent = "Please enter a valid email address.";
-      statusEl.style.color = "#FF7A00";
-      return;
-    }
-
-    if (!consentChecked) {
-      statusEl.textContent = "Please agree to the Privacy Policy before submitting.";
-      statusEl.style.color = "#FF7A00";
+    if (!form.checkValidity()) {
+      form.reportValidity();
       return;
     }
 

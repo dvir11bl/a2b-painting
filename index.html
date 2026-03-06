@@ -309,7 +309,7 @@
               <!-- Full name -->
               <div class="field">
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text" required maxlength="30" placeholder="Your full name" />
+                <input id="name" name="name" type="text" required maxlength="30" pattern="[^0-9]{1,30}" placeholder="Your full name" />
               </div>
 
               <!-- Phone number -->
@@ -323,7 +323,7 @@
             <div class="form__row">
               <div class="field">
                 <label for="cityZip">City or Zip</label>
-                <input id="cityZip" name="cityZip" type="text" placeholder="Tampa or 33602" />
+                <input id="cityZip" name="cityZip" type="text" maxlength="20" placeholder="Tampa or 33602" />
               </div>
 
               <div class="field">
@@ -334,8 +334,8 @@
 
             <div class="form__row">
               <div class="field field--full">
-                <label for="message">Optional message</label>
-                <textarea id="message" name="message" rows="4" placeholder="Tell us a bit about your project."></textarea>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" maxlength="500" placeholder="Tell us a bit about your project."></textarea>
               </div>
             </div>
             
