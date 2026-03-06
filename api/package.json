@@ -1,0 +1,9 @@
+{
+  "name": "a2b-swa-api",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.js",
+  "dependencies": {
+    "@azure/functions": "^4.0.0"
+  }
+}
