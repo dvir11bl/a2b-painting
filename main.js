@@ -113,6 +113,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 // Contact form submission to Azure Static Web Apps API
 document.addEventListener("DOMContentLoaded", () => {
   const LOGIC_APP_CONTACT_URL = "https://prod-72.eastus.logic.azure.com:443/workflows/ab35930d45634403836ae97a12bde8ed/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=C9z9tvsLQkfktDR76_g4xcR-FCgBZYsfgy-ws7DqJ38";
+  const formLoadedAt = Date.now();
   const form =
     document.getElementById("contact-form") ||
     document.getElementById("contactForm") ||
@@ -148,6 +149,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const cityZip = (form.querySelector("#cityZip")?.value || form.querySelector('[name="cityZip"]')?.value || "").trim();
     const projectType = (form.querySelector("#projectType")?.value || form.querySelector('[name="projectType"]')?.value || "").trim();
     const message = (form.querySelector("#message")?.value || form.querySelector('[name="message"]')?.value || "").trim();
+    const website = (form.querySelector("#website")?.value || form.querySelector('[name="website"]')?.value || "").trim();
+    const formFillSeconds = Math.max(0, Math.round((Date.now() - formLoadedAt) / 1000));
 
     statusEl.style.opacity = "1";
     statusEl.style.transform = "none";
@@ -160,6 +163,19 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    if (formFillSeconds < 3) {
+      statusEl.textContent = "Please wait a moment and try again.";
+      statusEl.style.color = "#FF7A00";
+      return;
+    }
+
+    if (website) {
+      statusEl.textContent = "Thank you! Your request was submitted successfully.";
+      statusEl.style.color = "#0B2D5C";
+      form.reset();
+      return;
+    }
+
     const payload = {
       name,
       phone,
@@ -167,6 +183,8 @@ document.addEventListener("DOMContentLoaded", () => {
       cityZip,
       projectType,
       message,
+      website,
+      formFillSeconds,
       submittedAt: new Date().toISOString(),
     };
 
