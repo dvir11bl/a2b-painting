@@ -310,6 +310,19 @@ input[type="checkbox"]{ cursor: pointer; }
   align-items: start;
 }
 
+.choose-a2b__about{
+  min-width: 0;
+}
+
+.choose-a2b__logo-inline{
+  display: block;
+  width: 50%;
+  max-width: 100%;
+  height: auto;
+  margin-top: clamp(18px, 2.4vw, 28px);
+  margin-inline: auto;
+}
+
 .choose-a2b__text{
   margin: 0;
   max-width: 60ch;
@@ -757,7 +770,7 @@ input[type="checkbox"]{ cursor: pointer; }
   color: #ffffff;
   font-weight: 700;
   border-radius: 999px;
-  padding: 14px 28px;
+  padding: 21px 42px;
   transition: background-color .24s ease, transform .24s ease, box-shadow .24s ease;
   box-shadow: 0 8px 20px rgba(245,124,0,.24);
 }
@@ -1027,6 +1040,28 @@ input[type="checkbox"]{ cursor: pointer; }
 .form__actions.submitted{ justify-content: flex-start; }
 .form__status{ color: var(--brand); font-weight: 700; }
 .form__note{ color: var(--muted); font-size: .9rem; margin-top: 10px; }
+
+.form__consent-inline{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.form__consent-inline input[type="checkbox"]{
+  width: 18px;
+  height: 18px;
+  margin-top: 0;
+  flex: 0 0 18px;
+  accent-color: var(--brand);
+}
+
+.form__consent-inline a{
+  color: var(--brand);
+  font-weight: 700;
+}
 
 /* Contact CTA emphasis */
 .contact .btn--brand{

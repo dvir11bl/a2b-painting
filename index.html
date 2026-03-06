@@ -111,8 +111,9 @@
         <span class="service-card__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="24" height="24"><path d="M4 5h16v14H4V5zm2 2v10h12V7H6zm2 2h8v2H8V9zm0 4h5v2H8v-2z" fill="currentColor"/></svg>
         </span>
-        <h3 class="service-card__title">Drywall Patching</h3>
-        <p class="service-card__text">Holes and cracks repaired so the paint looks flawless.</p>
+        <h3 class="service-card__title">Drywall</h3>
+        <p class="service-card__text">Installation of full drywall walls or repairs, including joint 
+          compound (spackling) and paint, with a smooth, flawless, and professional finish.</p>
       </article>
 
       <article class="service-card" role="listitem">
@@ -127,8 +128,9 @@
         <span class="service-card__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="24" height="24"><path d="M2 19h20v2H2v-2zM7 3l2 2-4 4-2-2 4-4zm7 1l7 7-1.5 1.5-7-7L14 4zm-3 6l6 6-1.5 1.5-6-6L11 10z" fill="currentColor"/></svg>
         </span>
-        <h3 class="service-card__title">Pressure Washing</h3>
-        <p class="service-card__text">A clean surface ensures better adhesion and longer-lasting paint.</p>
+        <h3 class="service-card__title">Skim Coating</h3>
+        <p class="service-card__text">Home renovation and refresh by removing wall and ceiling texture
+           and popcorn, creating smooth walls and a clean, modern look.</p>
       </article>
     </div>
 
@@ -151,6 +153,7 @@
               the secret to happy customers and future relationships. We work with private owners,
               property managers and realtors to create pleasant and beautiful homes.
             </p>
+            <img class="choose-a2b__logo-inline" src="assets/media/Logo.png" alt="A2B Painting logo" />
           </div>
 
           <div class="choose-a2b__diffs" role="list" aria-label="Differentiators">
@@ -285,7 +288,7 @@
                 </span>
                 Email:
               </p>
-              <a class="contact-info__email" href="mailto:loozamin@gmail.com">loozamin@gmail.com</a>
+              <a class="contact-info__email" href="mailto:contact@a2bultra.com">contact@a2bultra.com</a>
             </div>
 
             <div class="contact-info__item">
@@ -306,13 +309,13 @@
               <!-- Full name -->
               <div class="field">
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text" required placeholder="Your full name" />
+                <input id="name" name="name" type="text" required maxlength="30" placeholder="Your full name" />
               </div>
 
               <!-- Phone number -->
               <div class="field">
                 <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" inputmode="tel" pattern="[0-9+\-\s]{8,}" required
+                <input id="phone" name="phone" type="tel" inputmode="numeric" pattern="[0-9]{1,15}" maxlength="15" required
                   placeholder="(727) 643-1680" />
               </div>
             </div>
@@ -320,20 +323,12 @@
             <div class="form__row">
               <div class="field">
                 <label for="cityZip">City or Zip</label>
-                <input id="cityZip" name="cityZip" type="text" required placeholder="Tampa or 33602" />
+                <input id="cityZip" name="cityZip" type="text" placeholder="Tampa or 33602" />
               </div>
 
               <div class="field">
-                <label for="projectType">Project Type</label>
-                <select id="projectType" name="projectType">
-                  <option value="">Select one</option>
-                  <option value="interior">Interior Painting</option>
-                  <option value="exterior">Exterior Painting</option>
-                  <option value="trim-doors">Trim and Doors</option>
-                  <option value="drywall-patching">Drywall Patching</option>
-                  <option value="cabinet-painting">Cabinet Painting</option>
-                  <option value="pressure-washing">Pressure Washing</option>
-                </select>
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email" required placeholder="you@example.com" />
               </div>
             </div>
 
@@ -346,6 +341,11 @@
             
             <input name="website" autocomplete="off" tabindex="-1"
             style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
+
+            <div class="form__consent-inline">
+              <input id="consent" name="consent" type="checkbox" required>
+              <label for="consent">By submitting this form you agree to our <a href="./privacy.html">Privacy Policy</a></label>
+            </div>
 
             <!-- Submit button -->
             <div class="form__actions">
@@ -381,15 +381,16 @@
         <ul class="footer__links" role="list">
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#reviews">Reviews (Success Stories)</a></li>
+          <li><a href="#reviews">Reviews</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="./privacy.html">Privacy Policy</a></li>
         </ul>
       </div>
 
       <div class="footer__col">
         <h3 class="footer__heading">Contact &amp; Hours</h3>
         <p class="footer__line"><span class="footer__label">Call or Text:</span> <a href="tel:7276431680">(727) 643-1680</a></p>
-        <p class="footer__line"><span class="footer__label">Email:</span> <a href="mailto:loozamin@gmail.com">loozamin@gmail.com</a></p>
+        <p class="footer__line"><span class="footer__label">Email:</span> <a href="mailto:contact@a2bultra.com">contact@a2bultra.com</a></p>
         <p class="footer__line"><span class="footer__label">Hours:</span><br>Sunday: Closed<br>Mon-Sat: 8:00 AM - 5:00 PM</p>
         <p class="footer__line"><span class="footer__label">Serving:</span> Tampa Bay Area</p>
       </div>
@@ -397,7 +398,7 @@
 
     <div class="footer__bar">
       <div class="container footer__copy">
-        <small>&copy; <span id="footerYear"></span> A2B Painting. All rights reserved.</small>
+        <small>&copy;&#65039; 2026 A2B Painting<br>Operated by A2B Ultra Solutions LLC</small>
       </div>
     </div>
   </footer>

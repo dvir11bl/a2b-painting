@@ -147,18 +147,43 @@ document.addEventListener("DOMContentLoaded", () => {
     const phone = (form.querySelector("#phone")?.value || form.querySelector('[name="phone"]')?.value || "").trim();
     const email = (form.querySelector("#email")?.value || form.querySelector('[name="email"]')?.value || "").trim();
     const cityZip = (form.querySelector("#cityZip")?.value || form.querySelector('[name="cityZip"]')?.value || "").trim();
-    const projectType = (form.querySelector("#projectType")?.value || form.querySelector('[name="projectType"]')?.value || "").trim();
     const message = (form.querySelector("#message")?.value || form.querySelector('[name="message"]')?.value || "").trim();
+    const consentChecked = !!(form.querySelector("#consent")?.checked || form.querySelector('[name="consent"]')?.checked);
     const website = (form.querySelector("#website")?.value || form.querySelector('[name="website"]')?.value || "").trim();
     const formFillSeconds = Math.max(0, Math.round((Date.now() - formLoadedAt) / 1000));
+    const submittedAt = new Date().toISOString();
 
     statusEl.style.opacity = "1";
     statusEl.style.transform = "none";
     statusEl.style.color = "";
     statusEl.textContent = "";
 
-    if (!name || !phone || !cityZip) {
-      statusEl.textContent = "Please fill in Name, Phone, and City or Zip.";
+    if (!name || !phone || !email) {
+      statusEl.textContent = "Please fill in Name, Phone, and Email Address.";
+      statusEl.style.color = "#FF7A00";
+      return;
+    }
+
+    if (name.length > 30) {
+      statusEl.textContent = "Name must be 30 characters or less.";
+      statusEl.style.color = "#FF7A00";
+      return;
+    }
+
+    if (!/^\d{1,15}$/.test(phone)) {
+      statusEl.textContent = "Phone number must contain up to 15 digits.";
+      statusEl.style.color = "#FF7A00";
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      statusEl.textContent = "Please enter a valid email address.";
+      statusEl.style.color = "#FF7A00";
+      return;
+    }
+
+    if (!consentChecked) {
+      statusEl.textContent = "Please agree to the Privacy Policy before submitting.";
       statusEl.style.color = "#FF7A00";
       return;
     }
@@ -181,11 +206,10 @@ document.addEventListener("DOMContentLoaded", () => {
       phone,
       email,
       cityZip,
-      projectType,
       message,
       website,
       formFillSeconds,
-      submittedAt: new Date().toISOString(),
+      submittedAt,
     };
 
     try {
