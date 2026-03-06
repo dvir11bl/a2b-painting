@@ -112,6 +112,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 // Contact form submission to Azure Static Web Apps API
 document.addEventListener("DOMContentLoaded", () => {
+  const LOGIC_APP_CONTACT_URL = "https://prod-72.eastus.logic.azure.com:443/workflows/ab35930d45634403836ae97a12bde8ed/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=C9z9tvsLQkfktDR76_g4xcR-FCgBZYsfgy-ws7DqJ38";
   const form =
     document.getElementById("contact-form") ||
     document.getElementById("contactForm") ||
@@ -175,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
         submitBtn.textContent = "Sending...";
       }
 
-      const response = await fetch("/api/contact", {
+      const response = await fetch(LOGIC_APP_CONTACT_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
