@@ -18,7 +18,7 @@ document.querySelectorAll('[data-scroll-target]').forEach(btn => {
   const isSmallTouch = window.matchMedia('(max-width: 900px) and (hover: none)').matches;
   const isMobile = isMobileUA || isSmallTouch;
 
-  cta.setAttribute('href', isMobile ? 'tel:+17273325248' : '#contact');
+  cta.setAttribute('href', isMobile ? 'tel:+17276341680' : '#contact');
 })();
 
 // Hero CTA: subtle breathing animation on load, then occasionally.
